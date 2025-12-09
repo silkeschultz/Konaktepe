@@ -1,0 +1,61 @@
+/* Buenard */
+@font-face {
+    font-family: 'BuenardRegular'; 
+    src: url('/fonts/Buenard-Regular.ttf');
+    font-weight: normal; 
+    font-style: normal;
+    font-display: swap; /
+}
+
+@font-face {
+    font-family: 'BuenardBold'; 
+    src: url('/fonts/Buenard-Bold.ttf');
+    font-weight: bold; 
+    font-style: normal;
+    font-display: swap; /
+}
+
+/* Martel */
+@font-face {
+    font-family: 'MartelRegular'; 
+    src: url('/fonts/Martel-Regular.ttf');
+    font-weight: normal; 
+    font-style: normal;
+    font-display: swap; /
+}
+
+@font-face {
+    font-family: 'MartelBold'; 
+    src: url('/fonts/Martel-Bold.ttf');
+    font-weight: bold; 
+    font-style: normal;
+    font-display: swap; /
+}
+
+/* Archivo Narrow */
+@font-face {
+    font-family: 'ArchivoNarrowRegular'; 
+    src: url('/fonts/ArchivoNarrow-Regular.ttf');
+    font-weight: normal; 
+    font-style: normal;
+    font-display: swap; /
+}
+
+@font-face {
+    font-family: 'ArchivoNarrowItalic'; 
+    src: url('/fonts/ArchivoNarrow-Italic.ttf');
+    font-weight: italic; 
+    font-style: normal;
+    font-display: swap; /
+}
+
+@font-face {
+    font-family: 'ArchivoNarrowBold'; 
+    src: url('/fonts/ArchivoNarrow-Bold.ttf');
+    font-weight: bold; 
+    font-style: normal;
+    font-display: swap; /
+}
+
+
+
