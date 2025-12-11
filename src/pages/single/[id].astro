@@ -41,7 +41,7 @@ const { post } = Astro.props;
         </div>
         <div class="product-info">
           <h2>Camillas anbefaling</h2>
-          <p>{post.recommendation}</p>
+          <p class="c-recommendation">{post.recommendation}</p>
         </div>
         <div class="product-info">
           <h2>Sådan bruger du produktet</h2>
@@ -75,6 +75,15 @@ const { post } = Astro.props;
     margin: auto;
     padding: 3rem 0;
   }
+  .price {
+    font-family: "ArchivoNarrowBold";
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+  }
+  .c-recommendation {
+    font-style: italic;
+  }
   /* grid*/
   .product-grid {
     display: grid;
@@ -86,21 +95,16 @@ const { post } = Astro.props;
   .product-img img {
     width: 100%;
     display: block;
-    border-radius: 6px;
+    border-radius: 2px;
   }
 
   .product-content {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 0.2rem;
   }
   .product-info p {
     line-height: 1.6;
-  }
-  .price {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: black;
   }
 
   /* related cases*/

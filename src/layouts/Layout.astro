@@ -1,36 +1,36 @@
 ---
 // Importér komponenten ind i layoutet
-import Header from '../layouts/Header.astro';
-import Footer from '../layouts/Footer.astro';
+import Header from "../layouts/Header.astro";
+import Footer from "../layouts/Footer.astro";
+import "./styles/global.css";
 ---
 
 <!doctype html>
 <html lang="da">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="logos/logo-dark.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="logos/logo-dark.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Konaktepe Nails & Beauty</title>
+  </head>
+  <body>
     <Header />
 
     <main>
-   
-        <slot />
+      <slot />
     </main>
 
-
     <Footer />
-</body>
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(244, 239, 233, 1);
+  }
 </style>

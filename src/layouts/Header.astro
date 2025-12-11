@@ -1,95 +1,96 @@
 ---
 const navItems = [
-    { name: 'Forside', href: '/' },
-    { name: 'Om mig', href: '/om-mig' },
-    { name: 'Priser', href: '/priser' },
-    { name: 'Produkter', href: '/produkter' },
-    { name: 'Kurser', href: '/kurser' },
-    { name: 'FAQ', href: '/faq' },
+  { name: "Forside", href: "/" },
+  { name: "Om mig", href: "/om-mig" },
+  { name: "Priser", href: "/priser" },
+  { name: "Produkter", href: "/listview" },
+  { name: "Kurser", href: "/kurser" },
+  { name: "FAQ", href: "/faq" },
 ];
 
-const logoSrc = '/logos/logo-dark.svg'; 
+const logoSrc = "/logos/logo-dark.svg";
 ---
 
 <!-- Markup-blokken: HTML-struktur -->
 <header class="site-header">
-    
-    <!-- Logoet som et billede -->
-    <a href="/">
-        <img src={logoSrc} alt="K Logo" class="logo" />
-    </a>
+  <!-- Logoet som et billede -->
+  <a href="/">
+    <img src={logoSrc} alt="K Logo" class="logo" />
+  </a>
 
-    <!-- Burgermenu-knappen (kun synlig på mobil) -->
-    <button class="burger-menu-button" aria-label="Åbn menu">
-        ☰
-    </button>
+  <!-- Burgermenu-knappen (kun synlig på mobil) -->
+  <button class="burger-menu-button" aria-label="Åbn menu"> ☰ </button>
 
-    <!-- Navigationsmenu (vises på desktop, skjult på mobil indtil den åbnes med JS) -->
-    <nav class="main-nav">
-        <ul>
-            {navItems.map((item) => (
-                <li><a href={item.href}>{item.name}</a></li>
-            ))}
-             <li><a href="/book-tid" class="book-button">Book tid</a></li>
-        </ul>
-    </nav>
+  <!-- Navigationsmenu (vises på desktop, skjult på mobil indtil den åbnes med JS) -->
+  <nav class="main-nav">
+    <ul>
+      {
+        navItems.map((item) => (
+          <li>
+            <a href={item.href}>{item.name}</a>
+          </li>
+        ))
+      }
+      <li><a href="https://konaktepebeauty.onlinebooq.dk/" class="book-button" target="_blank">Book tid</a></li>
+    </ul>
+  </nav>
 </header>
 
 <style>
-    /* --- MOBILE FIRST STYLES --- */
-    .site-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 1.5rem; /* Polstring som i designet */
-        background-color: #fcfbf9; /* Baggrundsfarve */
-        color: #574b43; /* Tekstfarve */
-        font-family: serif;
-    }
+  /* --- MOBILE FIRST STYLES --- */
+  .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem; /* Polstring som i designet */
+    background-color: rgba(244, 239, 233, 1); /* Baggrundsfarve */
+    color: #574b43; /* Tekstfarve */
+    font-family: serif;
+  }
 
-    .logo {
-        height: 60px; /* Juster størrelse på dit logo-billede */
-        width: auto;
-    }
+  .logo {
+    height: 60px; /* Juster størrelse på dit logo-billede */
+    width: auto;
+  }
 
+  .burger-menu-button {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: inherit;
+    /* Ikonet er bare tekst her (☰), men kan være et SVG-ikon */
+  }
+
+  /* Skjul den fulde navigation på mobil som standard */
+  .main-nav {
+    display: none;
+  }
+
+  .book-button {
+    border: 1px solid #574b43;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  /* --- DESKTOP MEDIA QUERY (Gælder når skærmen er bredere end f.eks. 768px) --- */
+  @media (min-width: 768px) {
     .burger-menu-button {
-        background: none;
-        border: none;
-        font-size: 2rem;
-        cursor: pointer;
-        color: inherit;
-        /* Ikonet er bare tekst her (☰), men kan være et SVG-ikon */
+      display: none; /* Skjul burger-menuen på desktop */
     }
 
-    /* Skjul den fulde navigation på mobil som standard */
     .main-nav {
-        display: none; 
+      display: block; /* Vis navigationen på desktop */
     }
 
-    .book-button {
-        border: 1px solid #574b43;
-        padding: 0.5rem 1rem;
-        border-radius: 4px;
-        text-decoration: none;
-        display: inline-block;
+    .main-nav ul {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      gap: 2rem; /* Afstand mellem links */
     }
-
-    /* --- DESKTOP MEDIA QUERY (Gælder når skærmen er bredere end f.eks. 768px) --- */
-    @media (min-width: 768px) {
-        .burger-menu-button {
-            display: none; /* Skjul burger-menuen på desktop */
-        }
-
-        .main-nav {
-            display: block; /* Vis navigationen på desktop */
-        }
-
-        .main-nav ul {
-            display: flex;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            gap: 2rem; /* Afstand mellem links */
-        }
-    }
+  }
 </style>
