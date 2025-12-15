@@ -1,96 +1,147 @@
 ---
-const navItems = [
-  { name: "Forside", href: "/" },
-  { name: "Om mig", href: "/om-mig" },
-  { name: "Priser", href: "/priser" },
-  { name: "Produkter", href: "/listview" },
-  { name: "Kurser", href: "/kurser" },
-  { name: "FAQ", href: "/faq" },
-];
 
-const logoSrc = "/logos/logo-dark.svg";
 ---
 
-<!-- Markup-blokken: HTML-struktur -->
-<header class="site-header">
-  <!-- Logoet som et billede -->
-  <a href="/">
-    <img src={logoSrc} alt="K Logo" class="logo" />
+<header class="navbar">
+  <div class="nav-left">
+    <a href="/">Forside</a>
+    <a href="/">Om mig</a>
+    <a href="/">Priser</a>
+    <a href="/listview">Produkter</a>
+  </div>
+
+  <a href="/" class="logo">
+    <img src="public/logos/logo-dark.svg" alt="Til forsiden" />
   </a>
 
-  <!-- Burgermenu-knappen (kun synlig på mobil) -->
-  <button class="burger-menu-button" aria-label="Åbn menu"> ☰ </button>
+  <div class="nav-right">
+    <a href="/">Kurser</a>
+    <a href="/">FAQ</a>
+    <a href="https://konaktepebeauty.onlinebooq.dk/" target="_blank" class="cta">Book tid</a>
+  </div>
 
-  <!-- Navigationsmenu (vises på desktop, skjult på mobil indtil den åbnes med JS) -->
-  <nav class="main-nav">
-    <ul>
-      {
-        navItems.map((item) => (
-          <li>
-            <a href={item.href}>{item.name}</a>
-          </li>
-        ))
-      }
-      <li><a href="https://konaktepebeauty.onlinebooq.dk/" class="book-button" target="_blank">Book tid</a></li>
-    </ul>
+  <!-- BURGER -->
+  <input type="checkbox" id="menu-toggle" />
+
+  <label for="menu-toggle" class="burger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
+
+  <!-- BURGER MENU -->
+  <nav class="mobile-menu">
+    <a href="/">Forside</a>
+    <a href="/">Om mig</a>
+    <a href="/priser">Priser</a>
+    <a href="/listview">Produkter</a>
+    <a href="/">Kurser</a>
+    <a href="/">FAQ</a>
+    <a href="https://konaktepebeauty.onlinebooq.dk/" target="_blank" class="cta">Book tid</a>
   </nav>
 </header>
 
 <style>
-  /* --- MOBILE FIRST STYLES --- */
-  .site-header {
+  .navbar {
+    background: rgba(244, 239, 233, 1);
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 1rem 1.5rem; /* Polstring som i designet */
-    background-color: rgba(244, 239, 233, 1); /* Baggrundsfarve */
-    color: #574b43; /* Tekstfarve */
-    font-family: serif;
+    justify-content: space-between;
+    padding: 1.5rem 3rem;
+    position: relative;
+    font-family: "Buenard";
+  }
+  .navbar a:hover {
+    text-decoration: underline #c8b8a8;
+    font-weight: bold;
+  }
+
+  .nav-left,
+  .nav-right {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar a {
+    text-decoration: none;
+    color: rgba(57, 39, 29, 1);
+    font-size: 1rem;
+    margin: 0 1rem;
   }
 
   .logo {
-    height: 60px; /* Juster størrelse på dit logo-billede */
-    width: auto;
+    display: flex;
+    align-items: center;
   }
 
-  .burger-menu-button {
-    background: none;
-    border: none;
-    font-size: 2rem;
+  .logo img {
+    display: block;
+    height: 60px;
+    transition:
+      transform 0.3s ease,
+      filter 0.3s ease;
     cursor: pointer;
-    color: inherit;
-    /* Ikonet er bare tekst her (☰), men kan være et SVG-ikon */
   }
 
-  /* Skjul den fulde navigation på mobil som standard */
-  .main-nav {
+  .logo img:hover {
+    transform: scale(1.05);
+  }
+
+  .cta {
+    padding: 0.5rem 1.2rem;
+    border: 1px solid rgba(57, 39, 29, 1);
+    line-height: 1;
+  }
+  a.cta:hover {
+    background: rgba(57, 39, 29, 1);
+    color: rgba(244, 239, 233, 1);
+  }
+
+  /* BURGER */
+  #menu-toggle {
     display: none;
   }
 
-  .book-button {
-    border: 1px solid #574b43;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    text-decoration: none;
-    display: inline-block;
+  .burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
   }
 
-  /* --- DESKTOP MEDIA QUERY (Gælder når skærmen er bredere end f.eks. 768px) --- */
-  @media (min-width: 768px) {
-    .burger-menu-button {
-      display: none; /* Skjul burger-menuen på desktop */
+  .burger span {
+    width: 25px;
+    height: 2px;
+    background: rgba(57, 39, 29, 1);
+  }
+
+  /* BURGER MENU */
+  .mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(244, 239, 233, 1);
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+    gap: 1.5rem;
+  }
+
+  /* RESPONSIV */
+  @media (max-width: 768px) {
+    .nav-left,
+    .nav-right {
+      display: none;
     }
 
-    .main-nav {
-      display: block; /* Vis navigationen på desktop */
-    }
-
-    .main-nav ul {
+    .burger {
       display: flex;
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      gap: 2rem; /* Afstand mellem links */
+    }
+
+    #menu-toggle:checked ~ .mobile-menu {
+      display: flex;
     }
   }
 </style>
