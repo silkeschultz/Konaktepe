@@ -3,5 +3,284 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <h1>HEJ</h1>
+  <!-- om konaktepenails -->
+  <section class="om">
+    <div class="om-grid">
+      <div class="tekst">
+        <h2>Om Konaktepenails</h2>
+        <p>Velkommen til - her er nærvær og kvalitet i centrum.</p>
+        <p>
+          Jeg lægger stor vægt på hygiejne, tryghed og et behageligt miljø, hvor
+          du kan slappe af og føle dig godt tilpas.
+        </p>
+
+        <a
+          href="https://konaktepebeauty.onlinebooq.dk/"
+          target="_blank"
+          class="cta">Book tid</a
+        >
+      </div>
+
+      <div class="billede">
+        <img src="om.png" alt="Konaktepenails - om mig" />
+      </div>
+    </div>
+  </section>
+
+  <!-- priser -->
+  <section class="priser">
+    <h2>Priser på behandlinger</h2>
+    <p>Mest populære</p>
+    <div class="liste">
+      <div class="række">
+        <span
+          >Gelpolish forstærkning på naturneglene <span class="hop-ned"
+            >(uden aftagning)</span
+          >
+        </span>
+        <span>455</span>
+      </div>
+      <div class="række">
+        <span
+          >Gelpolish forstærkning på naturneglene <span class="hop-ned"
+            >(inkl. aftagning)</span
+          ></span
+        >
+        <span>555</span>
+      </div>
+      <div class="række">
+        <span
+          >Gelpolish med BIAB forstærkning <span class="hop-ned"
+            >(inkl. aftagning)</span
+          ></span
+        >
+        <span>605</span>
+      </div>
+    </div>
+    <a href="" class="cta">Flere priser</a>
+  </section>
+
+  <!-- galleri sektion -->
+  <section class="galleri">
+    <h2>Tidligere kunder</h2>
+    <div class="billede-grid">
+      <figure class="billede">
+        <img src="om.png" alt="Negle fra tidligere kunde" />
+        <figcaption>
+          "At få lavet mine negle af Camilla, er den bedste gave"
+        </figcaption>
+      </figure>
+      <figure class="billede">
+        <img src="om.png" alt="Negle fra tidligere kunde" />
+        <figcaption>
+          "At få lavet mine negle af Camilla, er den bedste gave"
+        </figcaption>
+      </figure>
+      <figure class="billede">
+        <img src="om.png" alt="Negle fra tidligere kunde" />
+        <figcaption>
+          "At få lavet mine negle af Camilla, er den bedste gave"
+        </figcaption>
+      </figure>
+      <figure class="billede">
+        <img src="om.png" alt="Negle fra tidligere kunde" />
+        <figcaption>
+          "At få lavet mine negle af Camilla, er den bedste gave"
+        </figcaption>
+      </figure>
+    </div>
+    <a href="" class="cta">Se galleri</a>
+  </section>
+
+  <!-- teknikker sektion -->
+  <section class="teknikker">
+    <div class="teknikker-grid">
+      <img
+        class="teknikker-img"
+        src="public/teknikker.png"
+        alt="Gelpolish produkter"
+      />
+
+      <div class="teknikker-tekst">
+        <h2>Skånsomme, professionelle teknikker</h2>
+
+        <p>
+          Vi arbejder med <strong>gelpolish</strong> og <strong>BIAB</strong>,
+          som styrker og beskytter naturneglen - uden lugt eller skadelig kemi.
+        </p>
+
+        <ul>
+          <li>Holder i 3-4 uger</li>
+          <li>Give et smukt, glansfuldt resultat</li>
+          <li>Beskytter og forstærker naturneglen</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 </Layout>
+
+<style>
+  /* om konaktepenails sektion*/
+  .om {
+    background-color: #d8c8b3;
+    padding: 120px 50px;
+  }
+
+  .om-grid {
+    max-width: 980px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: stretch;
+  }
+
+  .tekst {
+    text-align: center;
+  }
+  .tekst p {
+    max-width: 420px;
+    margin: 12px auto;
+  }
+
+  a.cta:hover {
+    background: rgba(57, 39, 29, 1);
+    color: rgba(244, 239, 233, 1);
+  }
+
+  .cta {
+    text-decoration: none;
+    padding: 0.5rem 1.2rem;
+    border: 1px solid rgba(57, 39, 29, 1);
+    line-height: 1;
+    color: black;
+    box-shadow: 1px 1px 1px grey;
+  }
+
+  .billede img {
+    width: 1000%;
+    max-width: 300px;
+  }
+  .billede {
+    justify-self: end;
+  }
+
+  /* pris sektion */
+  .priser {
+    padding: 120px 50px;
+    text-align: center;
+  }
+  .liste {
+    max-width: 700px;
+    margin: 40px auto;
+    border-top: 1px solid black;
+  }
+
+  .række {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid black;
+    text-align: left;
+  }
+
+  /* venstre tekst skal kunne bryde */
+  .række span:first-child {
+    flex: 1;
+  }
+  /* højre pris skal blive ude til højre */
+  .række span:last-child {
+    white-space: nowrap;
+    font-weight: 600;
+  }
+
+  /* galleri sektion */
+  .galleri {
+    background-color: #d8c8b3;
+    padding: 90px 24px;
+  }
+  .galleri h2 {
+    text-align: center;
+    padding: 40px;
+  }
+  .galleri figcaption {
+    max-width: 300px;
+  }
+  .billede-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px 90px;
+    margin: 0 auto;
+  }
+  .billede img {
+    width: 100%;
+  }
+
+  /* teknikker sektion */
+  .teknikker {
+    padding: 100px 25px;
+  }
+  .teknikker-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+  }
+
+  .teknikker-img {
+    width: 100%;
+    max-width: 520px;
+  }
+
+  .teknikker-tekst {
+    text-align: center;
+  }
+
+  .teknikker-tekst h2 {
+    line-height: 1.2;
+  }
+  .teknikker-tekst p {
+    margin: 0 auto 18px;
+    max-width: 420px;
+    line-height: 1.7;
+    font-size: 20px;
+  }
+  .teknikker-tekst ul {
+    margin: 0 auto;
+    max-width: 390px;
+    text-align: left;
+  }
+
+  /* mobil version */
+  @media (max-width: 768px) {
+    /* om sektion */
+    .om-grid {
+      grid-template-columns: 1fr;
+    }
+    .billede {
+      justify-self: center;
+    }
+
+    /* pris sektion */
+    .hop-ned {
+      display: block;
+    }
+
+    /* galleri sektion */
+    .billede-grid {
+      grid-template-columns: 1fr;
+      gap: 50px;
+    }
+
+    /* teknik sektion */
+    .teknikker-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+    .teknikker-grid img {
+      max-width:;
+    }
+  }
+</style>
