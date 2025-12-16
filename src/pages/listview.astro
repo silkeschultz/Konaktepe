@@ -1,7 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
-const endpoint = "https://yvsqeurljhxwfykzgfyb.supabase.co/rest/v1/Konaktepe_nails?select=*";
+const endpoint =
+  "https://yvsqeurljhxwfykzgfyb.supabase.co/rest/v1/Konaktepe_nails?select=*";
 const key = `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl2c3FldXJsamh4d2Z5a3pnZnliIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI5Nzc0ODMsImV4cCI6MjA3ODU1MzQ4M30.tQHxzSel-Iqvcvuh9XBVKsvHr-oNSd8XLUyhsGABUGo`;
 
 const options = {
@@ -16,34 +17,32 @@ console.log(data);
 ---
 
 <Layout>
-  <section>
+  <main class="products">
     <h1>Udvalgte produkter, der kan købes i klinikken</h1>
-    <p>Her finder du nøje udvalgte produkter, som jeg selv bruger i klinikken, og som du kan købe med hjem efter din behandling. Jeg hjælper dig gerne med at vælge det, der passer bedst til dine behov</p>
-    <!-- <section id="filters">
-      <button data-gender="All">Alle produkter</button>
-      <button data-gender="Nails">Til negle</button>
-      <button data-gender="Body">Til kroppen</button>
-    </section>
-    <section id="sorting">
-      <button data-direction="lohi">Pris lav til høj</button>
-      <button data-direction="hilo">Pris høj til lav</button>
-    </section> -->
-    <section class="product-grid">
+    <p>
+      Her finder du nøje udvalgte produkter, som jeg selv bruger i klinikken, og
+      som du kan købe med hjem efter din behandling. Jeg hjælper dig gerne med
+      at vælge det, der passer bedst til dine behov
+    </p>
+
+    <div class="product-grid">
       {data.map((product) => <Card data={product} />)}
-    </section>
-  </section>
+    </div>
+  </main>
 </Layout>
 
 <style>
-  section {
+  .products {
     width: 100%;
     max-width: 1200px;
     margin: auto;
-    padding: 2rem;
+    padding: 4rem 2rem;
   }
+
   .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 3rem;
+    justify-items: center;
   }
 </style>
