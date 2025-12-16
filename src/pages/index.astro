@@ -26,7 +26,7 @@ import global from "../styles/global.css";
         <p>Velkommen til - her er nærvær og kvalitet i centrum.</p>
         <p>Jeg lægger stor vægt på hygiejne, tryghed og et behageligt miljø, hvor du kan slappe af og føle dig godt tilpas.</p>
 
-        <a href="https://konaktepebeauty.onlinebooq.dk/" target="_blank" class="cta">Book tid</a>
+        <a class="cta" href="https://konaktepebeauty.onlinebooq.dk/" target="_blank">Book tid</a>
       </div>
 
       <div class="billede">
@@ -53,7 +53,9 @@ import global from "../styles/global.css";
         <span>605</span>
       </div>
     </div>
-    <a href="" class="cta">Flere priser</a>
+    <div class="cta_priser">
+      <a href="/" class="cta">Flere priser</a>
+    </div>
   </section>
 
   <!-- galleri sektion -->
@@ -77,7 +79,9 @@ import global from "../styles/global.css";
         <figcaption>"At få lavet mine negle af Camilla, er den bedste gave"</figcaption>
       </figure>
     </div>
-    <a href="" class="cta">Se galleri</a>
+    <div class="cta_galleri">
+      <a href="" class="cta">Se galleri</a>
+    </div>
   </section>
 
   <!-- teknikker sektion -->
@@ -215,30 +219,69 @@ import global from "../styles/global.css";
   }
 
   .tekst {
+    display: flex;
+    flex-direction: column;
     text-align: center;
+    height: 100%;
   }
   .tekst p {
     max-width: 420px;
-    margin: 12px auto;
+    margin: 20px auto;
+  }
+  .tekst .cta {
+    font-family: "ArchivoNarrowRegular";
+    font-weight: bolder;
+    margin-top: 50px;
+    align-self: center;
+    color: #000000;
   }
 
-  a.cta:hover {
+  .tekst .cta:hover {
     background: rgba(57, 39, 29, 1);
-    color: rgba(244, 239, 233, 1);
+    color: #f5eee6;
+  }
+  .cta_priser .cta {
+    font-family: "ArchivoNarrowRegular";
+    font-weight: bolder;
+    margin-top: 50px;
+    align-self: center;
+    color: #000000;
+  }
+  .cta_priser .cta:hover {
+    background: rgba(57, 39, 29, 1);
+    color: #f5eee6;
+  }
+  .cta_galleri .cta {
+    font-family: "ArchivoNarrowRegular";
+    font-weight: bolder;
+    margin-top: 70px;
+    color: #000000;
+    display: inline-block;
+  }
+
+  .cta_galleri .cta:hover {
+    background: rgba(57, 39, 29, 1);
+    color: #f5eee6;
+  }
+  .cta_galleri {
+    display: flex;
+    justify-content: center;
   }
 
   .cta {
+    padding: 0.75rem 2.2rem;
     text-decoration: none;
-    padding: 0.5rem 1.2rem;
     border: 1px solid rgba(57, 39, 29, 1);
-    line-height: 1;
-    color: black;
-    box-shadow: 1px 1px 1px grey;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+    transition:
+      background 0.2s ease,
+      color 0.2s ease;
   }
 
   .billede img {
-    width: 1000%;
+    width: 100%;
     max-width: 300px;
+    display: block;
   }
   .billede {
     justify-self: end;
@@ -284,15 +327,27 @@ import global from "../styles/global.css";
   }
   .galleri figcaption {
     max-width: 300px;
+    font-family: "ArchivoNarrowItalic";
+    margin-top: 5px;
   }
   .billede-grid {
+    max-width: 900px;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 70px 90px;
-    margin: 0 auto;
+  }
+  .billede {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
   .billede img {
     width: 100%;
+    max-width: 260px;
+    height: auto;
+    display: block;
   }
 
   /* teknikker sektion */
@@ -331,36 +386,10 @@ import global from "../styles/global.css";
     max-width: 390px;
     text-align: left;
   }
-
-  /* Hero sektion */
-  /*   .hero-video {
-    position: relative;
+  li {
+    font-family: "ArchivoNarrowRegular";
   }
 
-  .hero-video video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .video-toggle {
-    position: absolute;
-    bottom: 16px;
-    left: 16px;
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 42px;
-    height: 42px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-
-  .video-toggle:hover {
-    background: rgba(0, 0, 0, 0.8);
-  }
- */
   /* mobil version */
   @media (max-width: 768px) {
     /* om sektion */
