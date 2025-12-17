@@ -1,13 +1,18 @@
 ---
-
+const currentPath = Astro.url.pathname;
 ---
 
 <header class="navbar">
   <div class="nav-left">
-    <a href="/">Forside</a>
+    <a href="/" class={currentPath === "/" ? "active" : ""}> Forside </a>
     <a href="/">Om mig</a>
     <a href="/">Priser</a>
-    <a href="/listview">Produkter</a>
+    <a
+      href="/listview"
+      class={currentPath.startsWith("/listview") ? "active" : ""}
+    >
+      Produkter
+    </a>
   </div>
 
   <a href="/" class="logo">
@@ -17,7 +22,9 @@
   <div class="nav-right">
     <a href="/">Kurser</a>
     <a href="/">FAQ</a>
-    <a href="https://konaktepebeauty.onlinebooq.dk/" target="_blank" class="cta">Book tid</a>
+    <a href="https://konaktepebeauty.onlinebooq.dk/" target="_blank" class="cta"
+      >Book tid</a
+    >
   </div>
 
   <!-- BURGER -->
@@ -37,7 +44,9 @@
     <a href="/listview">Produkter</a>
     <a href="/">Kurser</a>
     <a href="/">FAQ</a>
-    <a href="https://konaktepebeauty.onlinebooq.dk/" target="_blank" class="cta">Book tid</a>
+    <a href="https://konaktepebeauty.onlinebooq.dk/" target="_blank" class="cta"
+      >Book tid</a
+    >
   </nav>
 </header>
 
@@ -59,6 +68,20 @@
     background: rgba(57, 39, 29, 1);
     color: #f5eee6;
   }
+
+  /* TIL CTA FARVESKIFT TIL VORES JS FUNKTION */
+  .navbar.scrolled .cta {
+    background: rgba(57, 39, 29, 1);
+    color: #f5eee6;
+    border-color: rgba(57, 39, 29, 1);
+  }
+
+  /* Får markeret border og fed skrift så vi ved hvor vi er */
+  .navbar a.active {
+    border-bottom: 2px solid rgba(57, 39, 29, 1);
+    font-weight: bolder;
+  }
+
   .navbar {
     background: rgba(244, 239, 233, 1);
     display: flex;
@@ -68,6 +91,20 @@
     position: relative;
     font-family: "BuenardRegular";
   }
+
+  /* får headeren til at være fast nå vi scroller ned */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    /* width: 100%; */
+
+    /* så den ligger over hero */
+    z-index: 9999;
+    box-sizing: border-box;
+  }
+
   .navbar a:hover {
     font-weight: bold;
     text-decoration: underline;
@@ -109,10 +146,12 @@
     /* display: none; */
     position: absolute;
     opacity: 0;
-    pointer-events: none;
+    /* pointer-events: none; */
   }
 
   .burger {
+    position: absolute;
+    right: 1.5rem;
     z-index: 1001;
     display: none;
     flex-direction: column;
@@ -128,17 +167,19 @@
 
   /* BURGER MENU */
   .mobile-menu {
-    z-index: 1000;
     display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
     width: 100%;
     background: rgba(244, 239, 233, 1);
     flex-direction: column;
     align-items: center;
     padding: 2rem 0;
     gap: 1.5rem;
+
+    position: fixed;
+    top: 110px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
   }
 
   /* RESPONSIV */
@@ -150,6 +191,9 @@
 
     .burger {
       display: flex;
+      position: fixed;
+
+      cursor: pointer;
     }
   }
 </style>
@@ -160,3 +204,18 @@
     }
   }
 </style>
+
+<!-- forsøg med js til fast header med cta farveskift -->
+<script is:inline>
+  window.addEventListener("DOMContentLoaded", () => {
+    const navbar = document.querySelector(".navbar");
+
+    const onScroll = () => {
+      if (!navbar) return;
+      navbar.classList.toggle("scrolled", window.scrollY > 50);
+    };
+
+    onScroll(); // så den også virker hvis man reloader midt på siden
+    window.addEventListener("scroll", onScroll, { passive: true });
+  });
+</script>
