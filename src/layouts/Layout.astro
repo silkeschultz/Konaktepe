@@ -1,5 +1,4 @@
 ---
-// Importér komponenten ind i layoutet
 import Header from "../layouts/Header.astro";
 import Footer from "../layouts/Footer.astro";
 import "./styles/global.css";
@@ -16,11 +15,9 @@ import "./styles/global.css";
   </head>
   <body>
     <Header />
-
     <main>
       <slot />
     </main>
-
     <Footer />
   </body>
 </html>
