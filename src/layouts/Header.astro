@@ -7,12 +7,7 @@ const currentPath = Astro.url.pathname;
     <a href="/" class={currentPath === "/" ? "active" : ""}> Forside </a>
     <a href="/">Om mig</a>
     <a href="/">Priser</a>
-    <a
-      href="/listview"
-      class={currentPath.startsWith("/listview") ? "active" : ""}
-    >
-      Produkter
-    </a>
+    <a href="/listview" class={currentPath.startsWith("/listview") ? "active" : ""}> Produkter </a>
   </div>
 
   <a href="/" class="logo">
@@ -22,9 +17,7 @@ const currentPath = Astro.url.pathname;
   <div class="nav-right">
     <a href="/">Kurser</a>
     <a href="/">FAQ</a>
-    <a href="https://konaktepebeauty.onlinebooq.dk/" target="_blank" class="cta"
-      >Book tid</a
-    >
+    <a href="https://konaktepebeauty.onlinebooq.dk/" target="_blank" class="cta">Book tid</a>
   </div>
 
   <!-- BURGER -->
@@ -44,9 +37,7 @@ const currentPath = Astro.url.pathname;
     <a href="/listview">Produkter</a>
     <a href="/">Kurser</a>
     <a href="/">FAQ</a>
-    <a href="https://konaktepebeauty.onlinebooq.dk/" target="_blank" class="cta"
-      >Book tid</a
-    >
+    <a href="https://konaktepebeauty.onlinebooq.dk/" target="_blank" class="cta">Book tid</a>
   </nav>
 </header>
 
@@ -143,10 +134,8 @@ const currentPath = Astro.url.pathname;
 
   /* BURGER */
   #menu-toggle {
-    /* display: none; */
     position: absolute;
     opacity: 0;
-    /* pointer-events: none; */
   }
 
   .burger {
